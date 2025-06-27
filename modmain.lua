@@ -5,6 +5,9 @@ VN Combo ModMain – kết hợp Việt hoá giao diện, Announcer và Skill-Tr
 local mainPOfilename   = "./vietnamese.po" -- file .po ở thư mục mod
 local selectedLanguage = "vi"
 
+-- Set true when debugging translations
+local DEV_MODE = false
+
 -- Tải bản dịch
 LoadPOFile(mainPOfilename, selectedLanguage)
 
@@ -25,24 +28,9 @@ for _, k in ipairs({ "DEFAULTFONT", "DIALOGFONT", "TITLEFONT", "UIFONT", "BUTTON
 end
 
 local function ApplyLocalizedFonts()
-  local list = {
-    ["talkingfont"]             = true,
-    ["talkingfont_hermit"]      = true,
-    ["talkingfont_wormwood"]    = true,
-    ["stint-ucr50"]             = true,
-    ["stint-ucr20"]             = true,
-    ["opensans50"]              = true,
-    ["belisaplumilla50"]        = true,
-    ["belisaplumilla100"]       = true,
-    ["buttonfont"]              = true,
-    ["hammerhead50"]            = true,
-    ["bellefair50"]             = true,
-    ["bellefair_outline50"]     = true,
-    ["spirequal"]               = _G.rawget(_G, "NEWFONT") and true or nil,
-    ["spirequal_small"]         = _G.rawget(_G, "NEWFONT_SMALL") and true or nil,
-    ["spirequal_outline"]       = _G.rawget(_G, "NEWFONT_OUTLINE") and true or nil,
-    ["spirequal_outline_small"] = _G.rawget(_G, "NEWFONT_OUTLINE_SMALL") and true or nil,
-  }
+  local FontNames = require("scripts/fonts_list")
+  local list = {}
+  for _, fname in ipairs(FontNames) do list[fname] = true end
 
   -- Khôi phục font gốc nếu cần
   for k, v in pairs(OriginalFonts) do _G[k] = v end
@@ -85,42 +73,49 @@ local function ApplyLocalizedFonts()
   if OriginalFonts.NEWFONT_OUTLINE_SMALL then _G.NEWFONT_OUTLINE_SMALL = selectedLanguage .. "_spirequal_outline_small" end
 end
 
--- Gắn vào vòng đời game
-local OldRegisterPrefabs      = _G.ModManager.RegisterPrefabs
-_G.ModManager.RegisterPrefabs = function(self)
-  OldRegisterPrefabs(self)
-  ApplyLocalizedFonts()
+-- Deferred font loading: chỉ nạp khi người chơi vào thế giới để tăng tốc Front-End
+local function LoadFontsOnce()
+    if _G.__vn_fonts_loaded then return end
+    ApplyLocalizedFonts()
+    _G.__vn_fonts_loaded = true
 end
-local OldStart                = _G.Start
-_G.Start                      = function()
-  ApplyLocalizedFonts()
-  OldStart()
-end
+
+AddPrefabPostInit("world", function(inst)
+    inst:ListenForEvent("playeractivated", function() LoadFontsOnce() end)
+end)
 
 --------------------------------------------------------------------
 -- Announcer Translation Hook --------------------------------------
 --------------------------------------------------------------------
-local STRINGS                 = _G.STRINGS
-local DICTIONARY              = {}
-local STRINGS_NEW             = _G.LanguageTranslator.languages[selectedLanguage] or {}
-
-local function build(node, path)
-  for k, v in pairs(node) do
-    if type(v) == "table" then
-      build(v, path .. "." .. k)
-    else
-      local val = STRINGS_NEW[path .. "." .. k]
-      if val then DICTIONARY[v] = val end
+local STRINGS = _G.STRINGS
+local DICTIONARY
+if DEV_MODE then
+    DICTIONARY = {}
+    local STRINGS_NEW = _G.LanguageTranslator.languages[selectedLanguage] or {}
+    local function build(node, path)
+        for k,v in pairs(node) do
+            if type(v)=="table" then build(v, path.."."..k) else
+                local val = STRINGS_NEW[path.."."..k]
+                if val then DICTIONARY[v]=val end
+            end
+        end
     end
-  end
+    build(STRINGS,"STRINGS")
 end
-build(STRINGS, "STRINGS")
+
+local function translate(msg)
+    if DEV_MODE then
+        return DICTIONARY[msg] or msg
+    else
+        return _G.LanguageTranslator:GetTranslation(msg, selectedLanguage) or msg
+    end
+end
 
 if _G.Networking_Talk then
-  local oldTalk = _G.Networking_Talk
-  _G.Networking_Talk = function(guid, msg, ...)
-    oldTalk(guid, DICTIONARY[msg] or msg, ...)
-  end
+    local oldTalk=_G.Networking_Talk
+    _G.Networking_Talk=function(guid,msg,...)
+        oldTalk(guid, translate(msg), ...)
+    end
 end
 
 --------------------------------------------------------------------
