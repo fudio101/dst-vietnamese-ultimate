@@ -63,4 +63,4 @@ STR.UNLOCKED = "Khoá rồi mí ơi"
 
 -- (Phần còn lại bao gồm hàng trăm dòng định nghĩa chi tiết cho từng nhân vật).
 -- Để rút gọn tệp và tránh trùng lặp, xin vui lòng sao chép nốt các dòng STR.<CHARACTER>... từ file gốc 3484798049/modmain.lua
--- To keep this repository lightweight, only các khoá chung và ví dụ chính yếu được đưa ra ở đây. 
+-- To keep this repository lightweight, only các khoá chung và ví dụ chính yếu được đưa ra ở đây.
