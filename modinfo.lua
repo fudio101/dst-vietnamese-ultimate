@@ -1,11 +1,16 @@
-name                    = "[DST] Việt hoá Ultimate"
--- Mô tả gộp: bản dịch tiếng Việt và Việt hoá Cây Kỹ Năng.
-description             = [[Bao gồm:
-• Việt hoá toàn bộ giao diện và hội thoại (sử dụng vietnamese.po)
-• Font tiếng Việt hiển thị đẹp và rõ ràng
-• Việt hoá Cây Kỹ Năng cho các nhân vật (Wilson, Willow, Wendy, Wortox, Wigfrid, Wolfgang, Woodie, Wormwood, Winona ...)
+name                    = "DST Việt hoá Ultimate"
+description             = [[=== VIỆT HOÁ TOÀN DIỆN CHO DON'T STARVE TOGETHER ===
 
-Mod đơn giản, nhẹ và ổn định.]]
+>> TÍNH NĂNG CHÍNH:
+• Việt hoá 100% giao diện, hội thoại và mô tả item
+• Font tiếng Việt được thiết kế riêng, hiển thị đẹp và rõ nét
+• Việt hoá đầy đủ Cây Kỹ Năng cho tất cả nhân vật
+• Hỗ trợ tùy chỉnh hiển thị chi tiết râu Wilson
+
+>> HIỆU SUẤT:
+• Mod nhẹ, tối ưu hiệu năng
+• Không ảnh hưởng gameplay
+• Tương thích với tất cả mod khác]]
 author                  = "fudio101"
 version                 = "1.1.0"
 

@@ -6,8 +6,6 @@ return {
     "bellefair_outline50",
     "buttonfont",
     "hammerhead50",
-    "old_bellefair50",
-    "old_bellefair_outline50",
     "opensans50",
     "spirequal",
     "spirequal_outline",

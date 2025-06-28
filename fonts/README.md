@@ -1,6 +1,6 @@
 # Font Việt hóa cho Don't Starve Together
 
-Thư mục này chứa các font Việt hóa dùng cho mod tổng hợp [VN] Việt hóa + Skill Tree.
+Thư mục này chứa các font Việt hóa dùng cho mod "DST Việt hoá Ultimate".
 
 - Đảm bảo các file *.zip trong thư mục này không bị thiếu.
 - Nếu gặp lỗi font, hãy kiểm tra lại tên file và định dạng.

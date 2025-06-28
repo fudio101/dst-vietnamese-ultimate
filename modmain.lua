@@ -1,27 +1,29 @@
---[[ VN Combo ModMain - Simplified ]] --
+--[[ DST Việt hoá Ultimate - Main Module ]] --
 
-local mainPOfilename   = "./vietnamese.po"
+local MOD_NAME = "DST Việt hoá Ultimate"
 local selectedLanguage = "vi"
 
 -- Load Vietnamese translation
-LoadPOFile(mainPOfilename, selectedLanguage)
+LoadPOFile("./vietnamese.po", selectedLanguage)
+print("[" .. MOD_NAME .. "] Vietnamese translation loaded")
 
 -- Load font system
 local font = require("font_helper")
-local MODROOT = MODROOT
-local modname = modname
-
 font.setup(selectedLanguage, MODROOT, modname, GLOBAL)
 
--- Lazy load fonts when player joins world
+-- Load fonts when player joins world (only once per session)
+local fonts_loaded = false
 AddPrefabPostInit("world", function(inst)
-    inst:ListenForEvent("playeractivated", function() 
-        font.apply() 
-        print("[VN Combo] Fonts loaded successfully!")
+    inst:ListenForEvent("playeractivated", function()
+        if not fonts_loaded then
+            font.apply()
+            fonts_loaded = true
+            print("[" .. MOD_NAME .. "] Fonts applied successfully")
+        end
     end)
 end)
 
 -- Load skill tree strings
 modimport("scripts/skilltree_strings.lua")
 
-print("[VN Combo] Mod initialized - Vietnamese translation + fonts + skill tree")
+print("[" .. MOD_NAME .. "] Initialization complete! 🇻🇳")
