@@ -12,7 +12,8 @@ description             = [[=== VIỆT HOÁ TOÀN DIỆN CHO DON'T STARVE TOGETH
 • Không ảnh hưởng gameplay
 • Tương thích với tất cả mod khác]]
 author                  = "fudio101"
-version                 = "1.1.0"
+version                 = "1.1.1"
+forumthread             = "https://github.com/fudio101/dst-vietnamese-ultimate"
 
 priority                = 1000000
 

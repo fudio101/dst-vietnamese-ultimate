@@ -1,12 +1,12 @@
 # [DST] Việt hoá Ultimate
 
 <div align="center">
-  <img src="modicon.tex" alt="DST Việt hoá Ultimate" width="128" height="128">
+  <img src="preview.jpg" alt="DST Việt hoá Ultimate" width="128" height="128">
   
   **Mod Việt hoá toàn diện cho Don't Starve Together**
   
   [![Tác giả](https://img.shields.io/badge/Tác_giả-fudio101-blue.svg)](https://github.com/fudio101)
-  [![Version](https://img.shields.io/badge/Version-1.1.0-green.svg)](https://steamcommunity.com/sharedfiles/filedetails/?id=3484798050)
+  [![Version](https://img.shields.io/badge/Version-1.1.1-green.svg)](https://steamcommunity.com/sharedfiles/filedetails/?id=3510683755)
   [![DST](https://img.shields.io/badge/DST-Compatible-orange.svg)](https://store.steampowered.com/app/322330/Dont_Starve_Together/)
 </div>
 
@@ -32,7 +32,7 @@
 ## 🔧 Cài đặt
 
 ### 🎮 **Steam Workshop**
-1. Subscribe mod trên [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3484798050)
+1. Subscribe mod trên [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3510683755)
 2. Launch Don't Starve Together
 3. Enable mod trong Mods menu
 4. Restart game
@@ -103,7 +103,12 @@
 
 ## 📜 Lịch sử phiên bản
 
-### **v1.1.0** (Latest)
+### **v1.1.1** (Latest)
+- ✅ Thêm GitHub link vào modinfo
+- ✅ Cập nhật Steam Workshop link mới
+- ✅ Sửa lỗi hiển thị icon trong README
+
+### **v1.1.0**
 - ✅ Xóa Status Announcer (không ổn định)
 - ✅ Loại bỏ config options không dùng
 - ✅ Tối ưu hiệu suất
