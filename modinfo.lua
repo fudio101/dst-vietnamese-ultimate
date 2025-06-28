@@ -1,13 +1,13 @@
-name                    = "[VN] Combo Việt hoá + Announcer + SkillTree"
--- Mô tả gộp: bản dịch tiếng Việt, thông báo trạng thái và Việt hoá Cây Kỹ Năng.
+name                    = "[VN] Combo Việt hoá + SkillTree"
+-- Mô tả gộp: bản dịch tiếng Việt và Việt hoá Cây Kỹ Năng.
 description             = [[Bao gồm:
 • Việt hoá toàn bộ giao diện và hội thoại (sử dụng vietnamese.po)
-• Thông báo trạng thái (máu/đói/tinh thần, v.v.) bằng tiếng Việt hoặc tiếng Anh
-• Việt hoá Cây Kỹ Năng cho các nhân vật (Wilson, Willow, Wendy, Wortox, Wigfrid, Wolfgang, Woodie, Wormwood, Winona …)
+• Font tiếng Việt hiển thị đẹp và rõ ràng
+• Việt hoá Cây Kỹ Năng cho các nhân vật (Wilson, Willow, Wendy, Wortox, Wigfrid, Wolfgang, Woodie, Wormwood, Winona ...)
 
-Chỉ cần bật duy nhất mod này, tắt hai mod cũ.]]
+Mod đơn giản, nhẹ và ổn định.]]
 author                  = "Shinosan & nqtonj (merged by AI)"
-version                 = "1.0.0"
+version                 = "1.1.0"
 
 priority                = 1000000
 
@@ -23,61 +23,12 @@ all_clients_require_mod = false
 dst_compatible          = true
 
 -- Tag tìm kiếm
-server_filter_tags      = { "VN", "Vietnamese", "Status", "SkillTree" }
+server_filter_tags      = { "VN", "Vietnamese", "SkillTree", "Font" }
 
 --------------------------------------------------------------------
 -- Cấu hình ---------------------------------------------------------
 --------------------------------------------------------------------
 configuration_options   = {
-    {
-        name    = "THONG_BAO_TRANG_THAI",
-        label   = "Thông báo trạng thái",
-        hover   = "Bật/Tắt thông báo trạng thái",
-        options = { { description = "On", data = "On" }, { description = "Off", data = "Off" } },
-        default = "On",
-    },
-    {
-        name = "LANGUAGE",
-        label = "Ngôn ngữ",
-        hover = "Chọn ngôn ngữ cho thông báo trạng thái",
-        options = { { description = "Tự phát hiện", data = "detect" }, { description = "English", data = "english" }, { description = "Tiếng Việt", data = "vietnam" } },
-        default = "vietnam",
-    },
-    { 
-        name = "WHISPER", 
-        label = "Whisper by default", 
-        hover = "Mặc định gửi tin nhắn ở chế độ thì thầm (chỉ người gần mới thấy) thay vì công khai cho tất cả",
-        options = { { description = "Có", data = true }, { description = "Không", data = false } }, 
-        default = false 
-    },
-    { 
-        name = "EXPLICIT", 
-        label = "Show current/max", 
-        hover = "Hiển thị chi tiết số hiện tại/tối đa (VD: 150/200 máu) thay vì chỉ phần trăm",
-        options = { { description = "Có", data = true }, { description = "Không", data = false } }, 
-        default = true 
-    },
-    { 
-        name = "SHOWPROTOTYPER", 
-        label = "Announce Prototyper", 
-        hover = "Thông báo khi sử dụng máy chế tạo (Science Machine, Alchemy Engine, v.v.)",
-        options = { { description = "Có", data = true }, { description = "Không", data = false } }, 
-        default = true 
-    },
-    { 
-        name = "SHOWEMOJI", 
-        label = "Announce Emoji", 
-        hover = "Hiển thị biểu tượng cảm xúc trong thông báo trạng thái",
-        options = { { description = "Có", data = true }, { description = "Không", data = false } }, 
-        default = true 
-    },
-    { 
-        name = "SHOWDURABILITY", 
-        label = "Announce Durability", 
-        hover = "Thông báo độ bền của công cụ/vũ khí khi sử dụng",
-        options = { { description = "Có", data = true }, { description = "Không", data = false } }, 
-        default = true 
-    },
     {
         name = "BEARD_INSULATION",
         label = "Beard Insulation",
@@ -92,5 +43,11 @@ configuration_options   = {
         options = { { description = "Không hiển thị", data = "no_default" }, { description = "Một phần", data = "some_default" }, { description = "Tất cả", data = "all_default" } },
         default = "no_default",
     },
-    { name = "WIG_BEEF_SONG", label = "Wigfrid Beefalo Song", hover = "Bật/Tắt bài hát khi Wigfrid cưỡi Beefalo (skill Noble Mount III)", options = { { description = "Enabled", data = "Enabled" }, { description = "Disabled", data = "Disabled" } }, default = "Enabled" },
+    { 
+        name = "WIG_BEEF_SONG", 
+        label = "Wigfrid Beefalo Song", 
+        hover = "Bật/Tắt bài hát khi Wigfrid cưỡi Beefalo (skill Noble Mount III)", 
+        options = { { description = "Enabled", data = "Enabled" }, { description = "Disabled", data = "Disabled" } }, 
+        default = "Enabled" 
+    },
 }
