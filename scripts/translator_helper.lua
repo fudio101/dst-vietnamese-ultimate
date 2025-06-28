@@ -1,38 +1,33 @@
--- Translator helper for VN Combo
+-- Translator helper for VN Combo - DST Compatible
 local M = {}
 
 function M.init(selectedLanguage, devMode, _G)
-    local DICTIONARY
-    if devMode then
-        DICTIONARY = {}
-        local STRINGS_NEW = _G.LanguageTranslator.languages[selectedLanguage] or {}
-        local function build(node, path)
-            for k, v in pairs(node) do
-                if type(v) == "table" then
-                    build(v, path .. "." .. k)
-                else
-                    local val = STRINGS_NEW[path .. "." .. k]
-                    if val then DICTIONARY[v] = val end
-                end
-            end
-        end
-        build(_G.STRINGS, "STRINGS")
+    -- Simple chat translation hook for DST
+    -- Vì chúng ta đã có .po file được load, translator chủ yếu là để hook chat
+    
+    local function translateMessage(msg)
+        -- Đơn giản trả về message gốc vì STRINGS đã được dịch bởi .po file
+        return msg
     end
 
-    local function translate(msg)
-        if devMode then
-            return DICTIONARY[msg] or msg
-        else
-            return _G.LanguageTranslator:GetTranslation(msg, selectedLanguage) or msg
-        end
-    end
-
+    -- Hook vào chat system để có thể translate messages nếu cần
+    -- Hiện tại chỉ pass-through vì việc dịch chính đã được .po file xử lý
     if _G.Networking_Talk then
         local oldTalk = _G.Networking_Talk
         _G.Networking_Talk = function(guid, msg, ...)
-            oldTalk(guid, translate(msg), ...)
+            if msg and type(msg) == "string" then
+                -- Có thể thêm logic translate custom messages ở đây nếu cần
+                oldTalk(guid, translateMessage(msg), ...)
+            else
+                oldTalk(guid, msg, ...)
+            end
         end
     end
+    
+    -- Export translate function
+    M.translate = translateMessage
+    
+    print("[VN Combo] Translator initialized successfully")
 end
 
 return M
