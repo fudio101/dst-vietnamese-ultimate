@@ -97,12 +97,22 @@ def convert_with_klei(png_path, output_dir="."):
 def main():
     """Main conversion function"""
     
-    if len(sys.argv) != 2:
+    if len(sys.argv) < 2:
         print("📖 Usage: python convert_icon.py <png_file>")
-        print("📖 Example: python convert_icon.py icons/mod_icon.png")
+        print("📖 Examples:")
+        print("   python tools/convert_icon.py modicon_source.png")
+        print("   python tools/convert_icon.py preview.jpg") 
+        print("\n💡 Tip: Use 'modicon_source.png' for mod icon conversion")
+        print("💡 Tip: 'preview.jpg' is for Steam Workshop only")
         sys.exit(1)
     
     png_file = sys.argv[1]
+    
+    # If only filename provided, assume it's in the project root
+    if not os.path.dirname(png_file):
+        # Check if running from tools/ directory
+        if os.path.basename(os.getcwd()) == "tools":
+            png_file = os.path.join("..", png_file)
     
     print("🛠️  DST Icon Converter - Klei Official")
     print("=" * 40)
@@ -115,6 +125,7 @@ def main():
         print("\n📋 Next steps:")
         print("1. Test your mod in DST")
         print("2. Icon should display perfectly")
+        print("3. Upload mod to workshop with preview.jpg!")
     else:
         print("\n💥 Conversion failed!")
         print("📥 Install Don't Starve Mod Tools from Steam")
