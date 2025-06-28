@@ -15,7 +15,7 @@ from pathlib import Path
 
 PUBLISH_CONFIG = {
     # Thư mục đích
-    "publish_dir": "dst-vietnamese-ultimate-publish",
+    "publish_dir": "publish",
     
     # Files đơn lẻ cần copy (file_name: description)
     "files": {
