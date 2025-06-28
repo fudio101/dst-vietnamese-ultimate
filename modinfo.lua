@@ -1,4 +1,4 @@
-name                    = "[VN] Combo Việt hoá + SkillTree"
+name                    = "[DST] Việt hoá Ultimate"
 -- Mô tả gộp: bản dịch tiếng Việt và Việt hoá Cây Kỹ Năng.
 description             = [[Bao gồm:
 • Việt hoá toàn bộ giao diện và hội thoại (sử dụng vietnamese.po)
@@ -6,7 +6,7 @@ description             = [[Bao gồm:
 • Việt hoá Cây Kỹ Năng cho các nhân vật (Wilson, Willow, Wendy, Wortox, Wigfrid, Wolfgang, Woodie, Wormwood, Winona ...)
 
 Mod đơn giản, nhẹ và ổn định.]]
-author                  = "Shinosan & nqtonj (merged by AI)"
+author                  = "fudio101"
 version                 = "1.1.0"
 
 priority                = 1000000
@@ -42,12 +42,5 @@ configuration_options   = {
         hover = "Hiển thị tốc độ mọc râu mặc định hay không",
         options = { { description = "Không hiển thị", data = "no_default" }, { description = "Một phần", data = "some_default" }, { description = "Tất cả", data = "all_default" } },
         default = "no_default",
-    },
-    { 
-        name = "WIG_BEEF_SONG", 
-        label = "Wigfrid Beefalo Song", 
-        hover = "Bật/Tắt bài hát khi Wigfrid cưỡi Beefalo (skill Noble Mount III)", 
-        options = { { description = "Enabled", data = "Enabled" }, { description = "Disabled", data = "Disabled" } }, 
-        default = "Enabled" 
     },
 }
