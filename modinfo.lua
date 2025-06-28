@@ -10,9 +10,15 @@ description             = [[=== VIỆT HOÁ TOÀN DIỆN CHO DON'T STARVE TOGETH
 >> HIỆU SUẤT:
 • Mod nhẹ, tối ưu hiệu năng
 • Không ảnh hưởng gameplay
-• Tương thích với tất cả mod khác]]
+• Tương thích với tất cả mod khác
+
+>> ĐÓNG GÓP:
+• Báo lỗi, đề xuất tính năng: GitHub Issues
+• Cải thiện bản dịch: Fork → Edit → Pull Request
+• Source code: github.com/fudio101/dst-vietnamese-ultimate
+• Cộng đồng Việt Nam luôn chào đón mọi đóng góp!]]
 author                  = "fudio101"
-version                 = "1.1.1"
+version                 = "1.1.2"
 forumthread             = "https://github.com/fudio101/dst-vietnamese-ultimate"
 
 priority                = 1000000

@@ -6,7 +6,7 @@
   **Mod Việt hoá toàn diện cho Don't Starve Together**
   
   [![Tác giả](https://img.shields.io/badge/Tác_giả-fudio101-blue.svg)](https://github.com/fudio101)
-  [![Version](https://img.shields.io/badge/Version-1.1.1-green.svg)](https://steamcommunity.com/sharedfiles/filedetails/?id=3510683755)
+  [![Version](https://img.shields.io/badge/Version-1.1.2-green.svg)](https://steamcommunity.com/sharedfiles/filedetails/?id=3510683755)
   [![DST](https://img.shields.io/badge/DST-Compatible-orange.svg)](https://store.steampowered.com/app/322330/Dont_Starve_Together/)
 </div>
 
@@ -103,7 +103,12 @@
 
 ## 📜 Lịch sử phiên bản
 
-### **v1.1.1** (Latest)
+### **v1.1.2** (Latest)
+- ✅ Thêm thông tin đóng góp vào description modinfo
+- ✅ Bổ sung link GitHub trong mod description
+- ✅ Khuyến khích cộng đồng tham gia phát triển
+
+### **v1.1.1**
 - ✅ Thêm GitHub link vào modinfo
 - ✅ Cập nhật Steam Workshop link mới
 - ✅ Sửa lỗi hiển thị icon trong README
