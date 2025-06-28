@@ -43,11 +43,41 @@ configuration_options   = {
         options = { { description = "Tự phát hiện", data = "detect" }, { description = "English", data = "english" }, { description = "Tiếng Việt", data = "vietnam" } },
         default = "vietnam",
     },
-    { name = "WHISPER",        label = "Whisper by default",  options = { { description = "Có", data = true }, { description = "Không", data = false } }, default = false },
-    { name = "EXPLICIT",       label = "Show current/max",    options = { { description = "Có", data = true }, { description = "Không", data = false } }, default = true },
-    { name = "SHOWPROTOTYPER", label = "Announce Prototyper", options = { { description = "Có", data = true }, { description = "Không", data = false } }, default = true },
-    { name = "SHOWEMOJI",      label = "Announce Emoji",      options = { { description = "Có", data = true }, { description = "Không", data = false } }, default = true },
-    { name = "SHOWDURABILITY", label = "Announce Durability", options = { { description = "Có", data = true }, { description = "Không", data = false } }, default = true },
+    { 
+        name = "WHISPER", 
+        label = "Whisper by default", 
+        hover = "Mặc định gửi tin nhắn ở chế độ thì thầm (chỉ người gần mới thấy) thay vì công khai cho tất cả",
+        options = { { description = "Có", data = true }, { description = "Không", data = false } }, 
+        default = false 
+    },
+    { 
+        name = "EXPLICIT", 
+        label = "Show current/max", 
+        hover = "Hiển thị chi tiết số hiện tại/tối đa (VD: 150/200 máu) thay vì chỉ phần trăm",
+        options = { { description = "Có", data = true }, { description = "Không", data = false } }, 
+        default = true 
+    },
+    { 
+        name = "SHOWPROTOTYPER", 
+        label = "Announce Prototyper", 
+        hover = "Thông báo khi sử dụng máy chế tạo (Science Machine, Alchemy Engine, v.v.)",
+        options = { { description = "Có", data = true }, { description = "Không", data = false } }, 
+        default = true 
+    },
+    { 
+        name = "SHOWEMOJI", 
+        label = "Announce Emoji", 
+        hover = "Hiển thị biểu tượng cảm xúc trong thông báo trạng thái",
+        options = { { description = "Có", data = true }, { description = "Không", data = false } }, 
+        default = true 
+    },
+    { 
+        name = "SHOWDURABILITY", 
+        label = "Announce Durability", 
+        hover = "Thông báo độ bền của công cụ/vũ khí khi sử dụng",
+        options = { { description = "Có", data = true }, { description = "Không", data = false } }, 
+        default = true 
+    },
     {
         name = "BEARD_INSULATION",
         label = "Beard Insulation",
